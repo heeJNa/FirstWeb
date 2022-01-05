@@ -5,14 +5,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <!-- style태그 안에서 그룹명을 사용하려면 앞에 .을 붙인다. 안붙이면 태그로 인식. id는 #을 붙인다.-->
+    <!-- Selectors : https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors-->
+    <!-- 셀렉터의 우선순위는 범위가 좁을수록 높다. -->
+    <!-- style태그 안에서 그룹명(class)을 사용하려면 앞에 .을 붙인다. 안붙이면 태그로 인식. id는 #을 붙인다.-->
     <!-- main-menu h1은 main-menu의 자손중(자식, 손자, 증손자 등 모두)에서 h1을 가리킨다.-->
-    <!-- main-menu>h1은 main-menu의 자식(1단계 아래) 중에서 h1을 가리킨다.-->
-    <style>
+    <!-- main-menu>h1은 main-menu의 자식(1단계 아래) 중에서 h1을 가리킨다. -->
+    <!-- main-menu a[href="a.html"] 은 a태그중 href를 사용하고 있고 그중 a.html을 사용하는 녀석을 가리킨다. -->
+    <!-- .first 앞에는 *가 생략되어있어 모든 자손들을 가리킨다. -->
+    <!-- + 는 바로 옆 형제(이웃)같은 의미 -->
+    <!-- ~ 는 동생들 중(같은 탭)에서 있으면 적용-->
+    <!-- <style>
         #main-menu>h1{ 
             font-size:20px;
         }
-    </style>
+        #main-menu>ul>li.first{ 
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style> 공통적인 스타일은 따로 파일을 만들어서 관리 => style.css -->
+    <link rel="stylesheet" href="../css/style.css" type="text/css"> <!-- link는 head에 써야한다.-->
 </head>
 <body>
     <a href="../index.html">홈</a>
@@ -29,12 +40,12 @@
     <!-- -->
     <header> <!-- header의 시작 : header란 머리말영역, 페이지 제목이나 소개하는 부분 -->
         <section> <!-- section을 써서 넘버링을 초기화 해두되고 안쓰고 그대로 이어가도 된다. : section이란 문서의 본론내용, 해당 내용 영역 -->
-            <h1>서두</h1> <!-- class는 그룹을 의미한다. --> <!-- id는 Element를 식별하기위한 것, '-'로 띄어쓰기 구분 (중복X) -->
+            <h1>서두</h1> <!-- class는 그룹을 의미한다. --> <!-- id는 Element를 식별하기위한 것, '-'로 띄어쓰기 구분 (중복X), id는 남발x -->
 
-            <nav id="main-munu"> <!-- nav는 섹션의 한 종류로 하이퍼링크 목록에 적용. 인라인스타일 링크를 가지고 있다는 의미를 부여 -->
+            <nav id="main-menu"> <!-- nav는 섹션의 한 종류로 하이퍼링크 목록에 적용. 인라인스타일 링크를 가지고 있다는 의미를 부여 -->
                 <h1>메인메뉴</h1>   <!-- 아웃라인을 위한 제목 --> <!-- <nav>의 자손 -->
                 <ul>
-                    <li><a href="">강좌선택</a></li>    
+                    <li> <a href="a.html">강좌선택</a></li>    <!-- #main-menu>ul>li.first -->
                     <li><a href="">학습가이드</a></li>
                     <li><a href="">AnswerIs</a></li>
                 </ul>
