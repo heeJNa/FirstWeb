@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/2022_01_24_HtmlProject/2022_01_24_HtmlProject.iml" filepath="$PROJECT_DIR$/2022_01_24_HtmlProject/2022_01_24_HtmlProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2022_01_26_HtmlSutdy/2022_01_26_HtmlSutdy.iml" filepath="$PROJECT_DIR$/2022_01_26_HtmlSutdy/2022_01_26_HtmlSutdy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HTML5.iml" filepath="$PROJECT_DIR$/.idea/HTML5.iml" />
+    </modules>
+  </component>
+</project>
