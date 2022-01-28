@@ -1,0 +1,73 @@
+<!--
+        1)CSS적용방법
+            1. 인라인 css => 태그 마다 설정
+                <div style="width:100px";></div>
+            2. 내부 css => 한개의 파일에만 적용
+                <head>
+                    <style>
+                    div{
+                        weight:100px;
+                    }
+                    </style>
+                </head>
+            3. 외부 css => 프로젝트 전체에 적용 가능
+                => 파일로 만든다(재사용) => .css
+                <head>
+                    <link rel="stylesheet href="파일명">
+                                          ===========
+                </head>
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./table.css"> <!-- 외부 css 사용-->
+    <style type="text/css">
+        #container{
+            width: 960px;
+
+        }
+        #row{
+            width: 700px;
+            margin: 0px auto; /* 가운데 정렬 */
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <h1>자유 게시판</h1>
+        <div id="row">
+            <table class="table_content" width="700">
+                <tr>
+                    <th>번호</th> <!--기본 가운데 정렬-->
+                    <th>제목</th>
+                    <th>이름</th>
+                    <th>작성일</th>
+                    <th>조회수</th>
+                </tr>
+                <tr class="dataTr">
+                    <td class="tdcenter">1</td>
+                    <td>css 응용</td>
+                    <td class="tdcenter">홍길동</td>
+                    <td class="tdcenter">2022-01-28</td>
+                    <td class="tdcenter">100</td>
+                </tr>
+                <tr class="dataTr">
+                    <td class="tdcenter">1</td>
+                    <td>css 응용</td>
+                    <td class="tdcenter">홍길동</td>
+                    <td class="tdcenter">2022-01-28</td>
+                    <td class="tdcenter">100</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
