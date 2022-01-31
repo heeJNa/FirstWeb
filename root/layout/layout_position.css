@@ -1,0 +1,51 @@
+@import url(../css/reset.css);
+
+header{
+      height: 70px;
+    background-color: beige;
+    /*  내위치 고정하면서 fixed 효과 가짐, top :0px 생략하면 안됨. */
+    /* position: sticky;
+    top: 0px; 
+    width: 100%; */
+}
+
+#s1 ul{
+    background-color: yellow;
+    /* height: 300px;
+    width: 500px; */
+
+    /* position: relative;
+    left: 50px;
+    top: 50px; */
+}
+#s1 li:nth-child(1){
+    /*  기본 크기 : content의 높이를 따라가고 
+                    부모의 너비를 100%로 따라감 */
+
+    /* absolute : 절대 위치 (left,top 등 사용), 부모가 없어짐, 겹처짐(제일 상단으로 출력)
+        부모로부터 절대위치 사용시 부모에  position: relative 삽입*/
+    /* position : absolute;
+    width: 20px;
+    height: 100%; 
+    right:0px;
+    --bottom: 0px; */
+
+    /* 원래있던 자기 자리를 내어주지 않음 */
+    /* position: relative;  
+    left: 50px;
+    top: 30px; */
+    background-color: red;
+}
+#s1 li:nth-child(2){
+    background-color: green;
+    /* 빠지면서 자기 자리를 내어주고 부모의 크기를 따르지 않음(content따름) 
+        화면이 스크롤로 내려가도 그 위치에 고정!! (화면에 종속) */
+    /* position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 80px; */
+}
+#s1 li:nth-child(3){
+    background-color: blue;
+}

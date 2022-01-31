@@ -1,0 +1,60 @@
+@import url(../css/reset.css);
+/* 
+        flex-grow: 0;      -- 
+        flex-shrink: 0;     | ==> flex : 1 1 100px;
+        flex-basis: 100px; --
+
+        flex: none; ==> flex: 0 0 auto;
+        flex: auto; ==> flex: 1 1 auto;
+        flex: initial; ==> flex: 0 1 auto;
+        flex: 100px; ==> flex: 1 1 100px;
+*/
+
+.s1 ul{
+    /* flex는 content의 높이를 따라감 */
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* wrpa/nowrap은 container(display: flex;) 영역에 만들어야 한다 */
+    /* flex-wrap: wrap; */
+    /* column을 사용하려면 container의 height를 지정해야함 */
+    height: 250px;
+    flex-flow: column wrap;
+    background-color: grey;
+}
+
+.s1 li{
+    --flex:100px; /* 1 1 100px */
+    flex: 0 0 100px;
+    /* flex-flow: row wrap; */
+    
+    /* 수평,수직 축 방향 둘다 적용 됨.(방향성x) */
+    --flex-basis: 100px;
+    /* 나머지 공백을 item들이 나눠가짐  li가 5개이므로 5개로 나눠짐 */
+    flex-grow:1;
+    /* item의 크기의 최소크기(content크기)를 지정 기본 1, 크기유지는 0 */
+    --flex-shrink: 0;
+}
+
+.s1 li:nth-child(1){
+    background-color: red;
+    /* 이 li가 남들보다 3배를 가져야하므로 li의 갯수 +2로 공백이 나눠짐 */
+    --flex-grow: 3;
+    /* 크기 100px 유지 */
+    --flex-shrink: 0;
+}
+.s1 li:nth-child(2){
+    background-color: green;
+    --flex-grow: 1;
+    --flex-shrink: 1;
+}
+.s1 li:nth-child(3){
+    background-color: blue;
+}
+.s1 li:nth-child(4){
+    background-color: yellow;
+    order:-1;
+}
+.s1 li:nth-child(5){
+    background-color: lightblue;
+    
+}
