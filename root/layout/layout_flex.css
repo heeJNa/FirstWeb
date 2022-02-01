@@ -17,22 +17,36 @@
     /* wrpa/nowrap은 container(display: flex;) 영역에 만들어야 한다 */
     /* flex-wrap: wrap; */
     /* column을 사용하려면 container의 height를 지정해야함 */
-    height: 250px;
-    flex-flow: column wrap;
+    height: 300px;
+    --flex-flow: column wrap;
     background-color: grey;
+    --flex-direction: column;
+    flex-wrap: wrap;
+    /*  main-axis 수평축에대한 정렬  */
+    --justify-content: space-around;
+    /* cross-axis 수직축에 대한 정렬 기본값 : stretch (부모의 높이 적용)
+        items는 각 line(층)에 대해 정렬을 함
+        space관련 명령어가 없음*/
+    --align-items: center;
+    --align-items: baseline;
+    /* flexline(층)에 대한 이해를 해야함
+        모든 line을 하나로 묶어서(packing) 정렬을 적용함
+        flex-wrap을 이용, space관련 명령어가 존재 */
+    --align-content: center;
+    align-content: space-between;
 }
 
 .s1 li{
     --flex:100px; /* 1 1 100px */
-    flex: 0 0 100px;
+    --flex: 0 0 100px;
     /* flex-flow: row wrap; */
     
     /* 수평,수직 축 방향 둘다 적용 됨.(방향성x) */
-    --flex-basis: 100px;
+    flex-basis: 100px;
     /* 나머지 공백을 item들이 나눠가짐  li가 5개이므로 5개로 나눠짐 */
-    flex-grow:1;
+    --flex-grow:1;
     /* item의 크기의 최소크기(content크기)를 지정 기본 1, 크기유지는 0 */
-    --flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 .s1 li:nth-child(1){
@@ -46,13 +60,15 @@
     background-color: green;
     --flex-grow: 1;
     --flex-shrink: 1;
+    /* 혼자만 예외적으로 다르게 정렬됨 */
+    --align-self: end;
 }
 .s1 li:nth-child(3){
     background-color: blue;
 }
 .s1 li:nth-child(4){
     background-color: yellow;
-    order:-1;
+    --order:-1;
 }
 .s1 li:nth-child(5){
     background-color: lightblue;
