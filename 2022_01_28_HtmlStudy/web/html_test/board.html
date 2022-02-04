@@ -1,51 +1,57 @@
 <!--
-        1)CSS적용방법
-            1. 인라인 css => 태그 마다 설정
-                <div style="width:100px";></div>
-            2. 내부 css => 한개의 파일에만 적용
-                <head>
-                    <style>
-                    div{
-                        weight:100px;
-                    }
-                    </style>
-                </head>
-            3. 외부 css => 프로젝트 전체에 적용 가능
-                => 파일로 만든다(재사용) => .css
-                <head>
-                    <link rel="stylesheet href="파일명">
-                                          ===========
-                </head>
-
--->
+     CSS 적용 방법
+     1) 인라인 CSS => 태그마다 설정
+        <div style="width:100px;height:100px;display:inline-block"></div>
+     2) 내부 CSS => 한개의 파일에만 적용
+        <head>
+          <style>
+           div{
+                width:100px;
+                height:100px;
+           }
+          </style>
+        </head>
+     3) 외부 CSS => 프로젝트 전체 파일에 적용
+        => 파일로 만든다 (재사용) => .css
+        <head>
+          <link rel="stylesheet" href="파일명">
+                                 =============
+                                 내부 파일 (경로명/파일명)
+                                 외부 파일 (http://~~/파일명)
+        </head>
+ -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="./table.css"> <!-- 외부 css 사용-->
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="table.css"><!-- CSS파일 경우(외부CSS) -->
     <style type="text/css">
         #container{
-            width: 960px;
-
+            width:1280px;
+            margin: 0px auto;
         }
         #row{
-            width: 700px;
-            margin: 0px auto; /* 가운데 정렬 */
+            width:900px;
+            margin: 0px auto;
         }
         h1{
-            text-align: center;
+            text-align: center
         }
     </style>
-
 </head>
 <body>
     <div id="container">
-        <h1>자유 게시판</h1>
+        <h1>자유게시판</h1>
         <div id="row">
-            <table class="table_content" width="700">
+            <table width=700>
                 <tr>
-                    <th>번호</th> <!--기본 가운데 정렬-->
+                    <td><a href="#">새글</a></td>
+                </tr>
+            </table>
+            <table class="table_content" width=700>
+                <tr>
+                    <th>번호</th>
                     <th>제목</th>
                     <th>이름</th>
                     <th>작성일</th>
@@ -53,21 +59,20 @@
                 </tr>
                 <tr class="dataTr">
                     <td class="tdcenter">1</td>
-                    <td>css 응용</td>
+                    <td>CSS 응용</td>
                     <td class="tdcenter">홍길동</td>
                     <td class="tdcenter">2022-01-28</td>
                     <td class="tdcenter">100</td>
                 </tr>
                 <tr class="dataTr">
                     <td class="tdcenter">1</td>
-                    <td>css 응용</td>
+                    <td>CSS 응용</td>
                     <td class="tdcenter">홍길동</td>
                     <td class="tdcenter">2022-01-28</td>
                     <td class="tdcenter">100</td>
                 </tr>
             </table>
         </div>
-
     </div>
 </body>
 </html>
