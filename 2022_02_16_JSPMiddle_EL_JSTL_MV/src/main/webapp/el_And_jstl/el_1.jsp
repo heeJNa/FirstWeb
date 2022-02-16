@@ -67,7 +67,7 @@
                 -----------------------
                 list.jsp?id=main
                          -------
-                일반 JSP => String id = requests.getParameter("id)
+                일반 JSP => String id = requests.getParameter("id")
                             <%= %>
                 EL => ${param.id} == <%=request.getParameter("id")%>
                               --- 키 => 결과값: admin

@@ -1,16 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%
     String no = request.getParameter("no");
-
+%>
+<%
     FoodDAO dao = new FoodDAO();
     FoodVO vo = dao.foodDetailData(Integer.parseInt(no));
 
     String addr = vo.getAddress();
     String addr1 = addr.substring(0,addr.indexOf("지")).trim();
     String addr2 = addr.substring(addr.indexOf("지"));
-
 %>
+
+<jsp:useBean id="rModel" class="com.sist.model.FoodModel">
+    <%
+        rModel.replyList(request);
+    %>
+</jsp:useBean>
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,6 +132,48 @@
 					</td>
 				</tr>
             </table>
+            <div style="height: 20px"></div>
+            <%-- 댓글출력 --%>
+            <table class="table">
+                <tr>
+                    <td>
+                        <c:forEach var="reply" items="${replyList }">
+                        <table class="table">
+                            <tr>
+                                <td class="text-left">👤${reply.name } (${reply.dbday })</td>
+                                <td class="text-right">
+
+                                    <a href="#" class="btn btn-xs btn-success">수정</a>
+                                    <a href="#" class="btn btn-xs btn-info">삭제</a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="text-left" valign="top">
+                                    <pre style="white-space: pre-wrap;border: none;background-color:white;" class="text-left">${reply.msg}</pre>
+                                </td>
+                            </tr>
+                        </table>
+                        </c:forEach>
+                    </td>
+                </tr>
+            </table>                         
+            <c:if test="${!empty sessionScope.id}">
+            <table class="table">
+                <tr>
+                    <td>
+                        <form method="post" action="reply_insert.jsp">
+                            <input type="hidden" name="fno" value="${param.no}">
+                            <textarea rows="4" cols="60" name="msg" style="float: left"></textarea>
+                            <button class="btn btn-sm btn-primary" style="float: left; height: 82px">댓글쓰기</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            </c:if>
+           <%-- <%
+                }
+            %>--%>
         </div>
         <div class="col-sm-5">
             <div id="map" style="width:100%;height:350px;"></div>

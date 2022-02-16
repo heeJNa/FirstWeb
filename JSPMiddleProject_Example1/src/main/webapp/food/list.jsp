@@ -6,8 +6,15 @@
  	if(strPage==null)
  		strPage="1";
  	 int curpage=Integer.parseInt(strPage);
- 
+ 	 
+ 	 String a = (String)session.getAttribute("id");
+ 	System.out.println(a);
+ 	String s = (String)session.getAttribute("name");
+ 	System.out.println(s);
+ 	String d = (String)session.getAttribute("addr");
+ 	System.out.println(d);
  	FoodDAO dao = new FoodDAO();
+ 	
  	List<FoodVO> list =  dao.foodListData(curpage);
  	
  	for(FoodVO vo:list)
@@ -32,11 +39,8 @@
 	 Cookie[] cookies = request.getCookies();
 
 	 if(cookies!=null){
-		 System.out.println("cookie 외부 if문");
 		 for(int i=cookies.length-1;i>=0;i--){
-			 System.out.println("cookie for문");
 			 if(cookies[i].getName().startsWith("k")){
-				System.out.println("cookie 내부 if문");
 				 String no = cookies[i].getValue();
 				 FoodVO vo =dao.foodDetailData(Integer.parseInt(no));
 				 cList.add(vo);
@@ -145,7 +149,7 @@
           
           for(FoodVO vo:cList)
           {
-        	  System.out.println(vo.getPoster().substring(0, vo.getPoster().indexOf("^")));
+        	  /* System.out.println(vo.getPoster().substring(0, vo.getPoster().indexOf("^"))); */
         	  if(k>7) break;
            %>
             	<a href="detail.jsp?no=<%=vo.getNo()%>">

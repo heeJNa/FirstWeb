@@ -158,20 +158,8 @@
       <Context docBase="JSPMiddleProject_Example1" path="/JSPMiddleProject_Example1" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject_Example1">
       	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="Gmlwnsskgus!@1208" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle_medium?TNS_ADMIN=/Users/kimheejun/Documents/Wallet_oracle" username="admin"/>
       </Context>
-      
-      <Context docBase="2022_02_15_JSPMiddleProject" path="/2022_02_15_JSPMiddleProject" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_15_JSPMiddleProject">
-      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="Gmlwnsskgus!@1208" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle_medium?TNS_ADMIN=/Users/kimheejun/Documents/Wallet_oracle" username="admin"/>
-      </Context>
-      <Context docBase="2022_02_16_JSPMiddleProject" path="/2022_02_16_JSPMiddleProject" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_16_JSPMiddleProject">
-      	<Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="Gmlwnsskgus!@1208" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle_medium?TNS_ADMIN=/Users/kimheejun/Documents/Wallet_oracle" username="admin"/>
-      </Context>
-      <Context docBase="2022_02_14_JSPMiddleProject" path="/2022_02_14_JSPMiddleProject" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_14_JSPMiddleProject">
-      <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="Gmlwnsskgus!@1208" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle_medium?TNS_ADMIN=/Users/kimheejun/Documents/Wallet_oracle" username="admin"/>
-      </Context>
-      <Context docBase="2022_02_16_DataBoardProject" path="/2022_02_16_DataBoardProject" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_16_DataBoardProject">
-      <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" loginTimeout="10" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/oracle" password="Gmlwnsskgus!@1208" type="javax.sql.DataSource" url="jdbc:oracle:thin:@oracle_medium?TNS_ADMIN=/Users/kimheejun/Documents/Wallet_oracle" username="admin"/>
-      </Context>
-      </Host>
+  
+      <Context docBase="2022_02_15_JSPMiddleProject(session)" path="/2022_02_15_JSPMiddleProject(session)" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_15_JSPMiddleProject(session)"/><Context docBase="2022_02_14_JSPMiddleProject(Cookie)" path="/2022_02_14_JSPMiddleProject(Cookie)" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_14_JSPMiddleProject(Cookie)"/><Context docBase="2022_02_16_DataBoardProject(hierarchical)" path="/2022_02_16_DataBoardProject(hierarchical)" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_16_DataBoardProject(hierarchical)"/><Context docBase="2022_02_16_JSPMiddle_EL_JSTL_MV" path="/2022_02_16_JSPMiddle_EL_JSTL_MV" reloadable="true" source="org.eclipse.jst.jee.server:2022_02_16_JSPMiddle_EL_JSTL_MV"/></Host>
     </Engine>
   </Service>
 </Server>

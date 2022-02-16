@@ -261,7 +261,7 @@ public class FoodDAO {
         List<ReplyVO> list = new ArrayList<>();
         try{
             getConnection();
-            String sql="SELECT no,id,name,msg,TO_CHAR(regdate,'YYYY-MM_DD HH24:MI:SS') " +
+            String sql="SELECT no,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') " +
                     "FROM jspReply " +
                     "WHERE food_no=?";
 
