@@ -1,0 +1,248 @@
+/* 메인페이지 전체 */
+/* 이벤트 섹션 */
+.event-area{
+	z-index: 0;
+	height: auto;
+	margin-top: 50px;
+	padding: 0 0;
+}
+#event-slide>img{
+	object-fit: cover;
+}
+.swiper-pagination {
+	position: absolute;
+	bottom: 10px;
+	margin: 0;
+}
+.swiper-pagination-bullet {
+	border-radius: 0;
+	width: 20%;
+	height: 10px;
+	text-align: center;
+	opacity: 1;
+	background: rgba(255,255,255,0.3);
+}
+.swiper-pagination-bullet-active {
+	background: #4364f7;
+}
+/* 베스트셀러 섹션 */
+.bestseller-space{
+	padding-top: 50px;
+	padding-bottom: 300px;
+	margin-top: 50px;
+	background-image: url("img/bg1.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: -1;
+}
+#bestseller-slide-area{
+	z-index: 0;
+}
+.bestseller-title{
+	margin-bottom: 100px;
+}
+.bestseller-title>h1{
+	font-weight: bolder;
+	text-align: center;
+	color: #0b3c8b;
+}
+#bestseller-slide{
+	max-height: 400px;
+}
+#bestseller-slide>img{
+	width: 100%;
+	height: 380px;
+}
+/* 신간도서 섹션 */
+.newbook-space{
+	z-index: 1;
+	background-color: #6fb1fc;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-bottom: 200px;
+	box-shadow: 0 0 100px 100px #6fb1fc;
+}
+#newbook-slide-area{
+	z-index: 0;
+}
+.newbook-title{
+	margin-bottom: 100px;
+}
+.newbook-title>h1{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+#newbook-slide{
+	max-height: 400px;
+}
+#newbook-slide>img{
+	width: 100%;
+	height: 380px;
+}
+.swiper-button-prev,.swiper-button-next{
+	color: white;
+}
+/* 유튜브 리뷰 섹션 */
+.under-space{
+	background-image: url('img/bg2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 1000px;
+}
+.youtube-title{
+	color: #0B3C8B;
+	text-align: center;
+}
+.youtube-title>h2{
+	font-size: 40px;
+	font-weight: bold;
+}
+#youtube-area{
+	height: 37vw;
+	position: relative;
+	border-radius: 20px;
+	margin-top: 50px;
+	margin-bottom: 200px;
+	padding: 20px 35px;
+	overflow-y: hidden;
+	box-shadow: 0px 0px 80px rgba(67, 100, 247, 0.5);
+	background-color: white;
+}
+/* 유튜브 섹션 - 책 소개 영역 */
+.youtube-book-img{
+	margin-top: 1vw;
+	margin-left: 2.5vw;
+	width: 100%;
+	height: 17vw;
+}
+.youtube-book-img>img{
+	width: 100%;
+	height: 100%;
+}
+.youtube-book-info{
+	margin-top: 1vw;
+	margin-left: 0.5vw;
+	padding-left: 0;
+	width: 19vw;
+	height: 20vw;
+	font-size: 15px;
+	line-height: 40px;
+	white-space: nowrap;
+}
+.youtube-book-info>ul>li{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.youtube-book-description{
+	margin-top: 1vw;
+	margin-left: 2.5vw;
+	padding-left: 0;
+	width: 34vw;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 7;
+	-webkit-box-orient: vertical;
+}
+@media screen and (max-width: 992px) {
+  #youtube-area{
+		height: 80vw;
+	}
+}
+@media screen and (max-width: 1200px) {
+	.youtube-book-description{
+		-webkit-line-clamp: 5;
+	}
+	.youtube-book-info{
+		font-size: 12px;
+		line-height: 30px;
+	}
+}
+#video-area{
+	height: 22.5vw;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.main-video{
+	height: 23vw;
+}
+/* Hide the images by default */
+.mySlides {
+  width: 100%;
+  height: 7.5vw;
+  display: none;
+}
+.myDescription {
+  width: 100%;
+  height: 33vw;
+  display: none;
+}
+#video{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+#thumb-area{
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 33.33%;
+  height: 15vw;
+  overflow-y: hidden;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+@media screen and (max-width: 992px) {
+    #youtube-area{
+		height: 72vw;
+	}
+	#video{
+		height: 45vw;
+	}
+	.main-video{
+		height: 46vw;
+	}
+	#thumb-element{
+		height: 80vw;
+	}
+	#thumb{
+		height: 20vw;
+	}
+}
+/* SNS 섹션 */
+.sns-title{
+	color: #0B3C8B;
+	text-align: center;
+}
+.sns-title>h2{
+	font-size: 40px;
+	font-weight: bold;
+}
+#sns-area{
+	height: 37vw;
+	position: absolute;
+	border-radius: 20px;
+	margin-top: 50px;
+	margin-bottom: 200px;
+	padding: 20px 35px;
+	overflow-y: hidden;
+	box-shadow: 0px 0px 80px rgba(67, 100, 247, 0.5);
+}
+#sns-area.h1{
+	position: relative;
+	top: 200px;
+	display: block;
+	margin-top: 100px;
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>BookEx</display-name>
+  <welcome-file-list>
+    <welcome-file>index.do</welcome-file>
+  </welcome-file-list>
+  <!-- 디폴트 정렬 기준 -->
+  <context-param>
+  	<param-name>DEFAULT_SORT</param-name>
+  	<param-value>SELL_COUNT</param-value>
+  </context-param>
+  <!-- 디폴트 페이징 속성 -->
+  <context-param>
+  	<param-name>POSTS_PER_PAGE</param-name>
+  	<param-value>10</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>PAGES_PER_BLOCK</param-name>
+  	<param-value>5</param-value>
+  </context-param>
+  <!-- 한글 깨짐 방지를 위한 필터 설정(예제 7-9) -->
+  <filter>
+    <filter-name>SetCharEncoding</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+      <init-param>
+        <param-name>encoding</param-name>
+        <param-value>utf-8</param-value>
+      </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>SetCharEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 서블릿 설정  -->
+  <servlet>
+  	<servlet-name>BookList</servlet-name>
+  	<servlet-class>controller.ListController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BookList</servlet-name>
+  	<url-pattern>/BookList.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Cart</servlet-name>
+  	<servlet-class>controller.CartController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Cart</servlet-name>
+  	<url-pattern>/Cart.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Index</servlet-name>
+  	<servlet-class>controller.IndexController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Index</servlet-name>
+  	<url-pattern>/index.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<servlet-class>controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/Login.do</url-pattern>
+  </servlet-mapping>
+</web-app>
