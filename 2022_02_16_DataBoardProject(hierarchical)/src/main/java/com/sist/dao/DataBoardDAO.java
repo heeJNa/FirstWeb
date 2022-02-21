@@ -344,7 +344,7 @@ public class DataBoardDAO {
                     ps=conn.prepareStatement(sql);
                     ps.setInt(1,no);
                     ps.executeUpdate();
-
+                    // 2-3 depth를 감소
                     sql="UPDATE databoard SET " + // 상위 글의 댓글 개수 -1
                             "depth=depth-1 " +
                             "WHERE no=?";
@@ -361,8 +361,6 @@ public class DataBoardDAO {
                     ps.setInt(1,no);
                     ps.executeUpdate();
                 }
-            // 2-3 depth를 감소
-
             }
 
             conn.commit();

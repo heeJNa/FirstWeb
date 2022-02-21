@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring방식 => XML: 등록 (클래스,SQL등록) -->
+<!-- DispatcherServlet에 소스 코딩을 하면 안된다 -->
+<!--
+		1. VO
+		2. DAO
+		3. Model => 반드시 XML에 등록
+		4. JSP
+		================== Spring
+		JSP(x), Spring(o)
+				======== 1. Java
+					     2. Oracle
+					     3. XML
+					     4. Annotation
+-->
+<beans>
+	<bean class="com.sist.model.MainModel"/>
+	<bean class="com.sist.model.FoodModel"/>
+</beans>
