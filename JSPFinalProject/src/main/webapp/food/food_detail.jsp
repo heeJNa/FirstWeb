@@ -76,7 +76,7 @@
                 	<td colspan="2" class="text-right">
                 		<a href="#" class="btn btn-xs btn-danger">찜하기</a>
                 		<a href="#" class="btn btn-xs btn-info">예약하기</a>
-                		<a href="../food/category_list.do?cno=${vo.cno }" class="btn btn-xs btn-success">목록</a>
+                		<a href="javascript:history.back()" class="btn btn-xs btn-success">목록</a>
                 	</td>
                 </tr>
             </table>

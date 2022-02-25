@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="wrapper row1">
@@ -16,11 +17,30 @@
 	      <h1><a href="../main/main.do">맛집 & 레시피 & 여행</a></h1> 
 	    </div>
 	    <div class="fl_right">
-	      <ul class="inline">
-	        <!-- <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-	        <li><i class="fa fa-envelope-o"></i> info@domain.com</li> -->
-	        <!-- 로그인 -->
-	      </ul>
+	    	<c:if test="${sessionScope.id==null }">
+				<%--
+						login.do ==> DispatcherServlet(Controller)
+											|
+									     Model(RequestMapping())
+						.do => Model
+				--%>
+			<form method="post" action="../member/login.do">
+		      <ul class="inline">
+		        <li>ID:<input type="text" name="id" size="15" class="input-sm"></li>
+		        <li>PW:<input type="password" name="pwd" size="15" class="input-sm" ></li>
+		        <li><input type="submit" value="로그인" class="btn btn-lg btn-danger"></li>
+		      </ul>
+			</form>
+	      	</c:if>
+	      	<c:if test="${sessionScope.id!=null }">
+			<form method="post" action="../member/logout.do">
+		      <ul class="inline">
+		        <li>${sessionScope.name }(${sessionScope.admin==1?"관리자":"일반사용자" })님 로그인되었습니다!!</li>
+		        <li><input type="submit" value="로그아웃" class="btn btn-lg btn-danger"></li>
+		        <!-- 로그인 -->
+		      </ul>
+			</form>
+	      	</c:if>
 	    </div>
 	    <!-- ################################################################################################ --> 
 	  </header>
@@ -70,10 +90,10 @@
 	      </li>
 	      <li><a class="drop" href="#">여행</a>
 	        <ul>
-	          <li><a href="pages/gallery.html">명소</a></li>
-	          <li><a href="pages/full-width.html">자연/관광</a></li>
-	          <li><a href="pages/sidebar-left.html">호텔</a></li>
-	          <li><a href="pages/sidebar-left.html">실시간 날씨 정보</a></li>
+	          <li><a href="../seoul/seoul_location.do">명소</a></li>
+	          <li><a href="../seoul/seoul_nature.do">자연/관광</a></li>
+	          <li><a href="../seoul/seoul_hotel.do">호텔</a></li>
+	          <li><a href="../seoul/seoul_weather.do">실시간 날씨 정보</a></li>
 	        </ul>
 	      </li>
 	      <li><a class="drop" href="#">커뮤니티</a>
@@ -85,10 +105,10 @@
 	      </li>
 	      <li><a href="#">실시간 채팅</a></li>
 	       <c:if test="${sessionScope.id!=null }">
-	      	 <c:if test="${sessionScope.admin==1 }">
+	      	 <c:if test="${sessionScope.admin==0 }">
 	      		<li><a href="#">마이페이지</a></li>
 	      	</c:if>
-	      	<c:if test="${sessionScope.admin==0 }">
+	      	<c:if test="${sessionScope.admin==1 }">
 	      		<li><a href="#">어드민페이지</a></li>
 	      	</c:if>
 	      </c:if>

@@ -43,7 +43,7 @@
                                         <img src="${fvo.poster}" width="100%"/>
                                         </a>
                                     </td>
-                                    <td width="70%">
+                                    <td width="70%" style="padding-left:10px;">
                                         <h3>
                                             <a href="../food/food_detail_before.do?no=${fvo.no}">
                                                 ${fvo.name }&nbsp;
@@ -53,13 +53,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="70%">${fvo.address}</td>
+                                    <td width="70%" style="padding-left:10px;">${fvo.address}</td>
                                 </tr>
                                 <tr>
-                                    <td width="70%">전화: ${fvo.tel}</td>
+                                    <td width="70%" style="padding-left:10px;">전화: ${fvo.tel}</td>
                                 </tr>
                                 <tr>
-                                    <td width="70%">음식종류: ${fvo.type}</td>
+                                    <td width="70%" style="padding-left:10px;">음식종류: ${fvo.type}</td>
                                 </tr>
                             </table>
 

@@ -37,23 +37,23 @@
 	    <ul class="nospace group btmspace-80">
 	      <li class="one_third first">
 	        <article class="service"><i class="icon fa fa-ambulance"></i>
-	          <h6 class="heading"><a href="#">서울 명소</a></h6>
+	          <h6 class="heading"><a href="../seoul/seoul_location.do">서울 명소</a></h6>
 	          <p>놓칠 수 없는 서울의 명소</p>
-	          <footer><a href="#">Read More &raquo;</a></footer>
+	          <footer><a href="../seoul/seoul_location.do">Read More &raquo;</a></footer>
 	        </article>
 	      </li>
 	      <li class="one_third">
 	        <article class="service"><i class="icon fa fa-h-square"></i>
-	          <h6 class="heading"><a href="#">서울 자연/관광</a></h6>
+	          <h6 class="heading"><a href="../seoul/seoul_nature.do">서울 자연/관광</a></h6>
 	          <p>멀리 가지 않아도 도심 속에서 느낄 수 있는 자연의 힐링</p>
-	          <footer><a href="#">Read More &raquo;</a></footer>
+	          <footer><a href="../seoul/seoul_nature.do">Read More &raquo;</a></footer>
 	        </article>
 	      </li>
 	      <li class="one_third">
 	        <article class="service"><i class="icon fa fa-hospital-o"></i>
-	          <h6 class="heading"><a href="#">서울 호텔</a></h6>
+	          <h6 class="heading"><a href="../seoul/seoul_hotel.do">서울 호텔</a></h6>
 	          <p>잠드는 순간에도 특별한 경험을 원하는 여행객 모두를 위한 서울의 호텔</p>
-	          <footer><a href="#">Read More &raquo;</a></footer>
+	          <footer><a href="../seoul/seoul_hotel.do">Read More &raquo;</a></footer>
 	        </article>
 	      </li>
 	    </ul>
@@ -127,20 +127,16 @@
 	    <!-- ################################################################################################ -->
 	    <h2 class="sectiontitle">최신 방문 맛집</h2><!-- 쿠키 사용 -->
 	    <!-- ################################################################################################ -->
-	    <ul class="nospace group">
-	      <li class="one_half first">
-	        <article><img class="imgl radius-10" src="../images/demo/100x100.gif" alt="">
-	          <h6 class="heading"><a href="#">Lorem Ipsum Dolor</a></h6>
-	          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
-	        </article>
-	      </li>
-	      <li class="one_half">
-	        <article><img class="imgl radius-10" src="../images/demo/100x100.gif" alt="">
-	          <h6 class="heading"><a href="#">Lorem Ipsum Dolor</a></h6>
-	          <p>Aenean semper elementum tellus, ut placerat leo. Quisque vehicula, urna sit amet.</p>
-	        </article>
-	      </li>
-	    </ul>
+	    <div class="inline">
+	     <c:forEach var="vo" items="${cList }" varStatus="s">
+	      <c:if test="${s.index<9 }">
+	       <img class="radius-10" src="${vo.poster }" style="width:100px;height:100px"
+	        title="${vo.name }"
+	       >
+	      </c:if>
+	     </c:forEach>
+	    </div>
+   
 	    <!-- ################################################################################################ --> 
 	    <!-- / main body -->
 	    <div class="clear"></div>

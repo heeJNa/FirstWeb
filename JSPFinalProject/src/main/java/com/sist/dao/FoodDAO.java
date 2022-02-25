@@ -18,7 +18,7 @@ public class FoodDAO {
             // 미리 생성된 Connection 객체를 얻어 온다.
             conn=dbcp.getConnection();
             String sql="SELECT cno,title,subject,poster " +
-                    "FROM category " +
+                    "FROM food_category " +
                     "ORDER BY cno ASC";
             ps= conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -46,7 +46,7 @@ public class FoodDAO {
         try{
             conn=dbcp.getConnection();
             String sql="SELECT no,cno,poster,name,score,tel,address,type " +
-                    "FROM food_house " +
+                    "FROM food_house_2 " +
                     "WHERE cno=? " +
                     "ORDER BY no ASC";
             ps= conn.prepareStatement(sql);
@@ -86,7 +86,7 @@ public class FoodDAO {
         try{
             conn=dbcp.getConnection();
             String sql="SELECT cno,title,subject,poster " +
-                    "FROM category " +
+                    "FROM food_category " +
                     "WHERE cno=?";
             ps= conn.prepareStatement(sql);
             ps.setInt(1,cno);
@@ -105,32 +105,33 @@ public class FoodDAO {
         return vo;
     }
     // 상세보기
-    public FoodVO foodDetailData(int no){
+    public FoodVO foodDetailData(int no,String tname){
         FoodVO vo = new FoodVO();
         try{
+        	
             // 1. 주소값을 얻어 온다.
             conn=dbcp.getConnection();
             // 2. SQL
-            String sql="SELECT no,cno,name,score,address,tel,type," +
+            String sql="SELECT no,name,score,address,tel,type," +
                     "price,parking,time,menu,poster " +
-                    "FROM food_house " +
+                    "FROM "+tname+" "+  
                     "WHERE no=?";
             ps= conn.prepareStatement(sql);
             ps.setInt(1,no);
             ResultSet rs=ps.executeQuery();
             rs.next();
             vo.setNo(rs.getInt(1));
-            vo.setCno(rs.getInt(2));
-            vo.setName(rs.getString(3));
-            vo.setScore(rs.getDouble(4));
-            vo.setAddress(rs.getString(5));
-            vo.setTel(rs.getString(6));
-            vo.setType(rs.getString(7));
-            vo.setPrice(rs.getString(8));
-            vo.setParking(rs.getString(9));
-            vo.setTime(rs.getString(10));
-            vo.setMenu(rs.getString(11));
-            vo.setPoster(rs.getString(12));
+            
+            vo.setName(rs.getString(2));
+            vo.setScore(rs.getDouble(3));
+            vo.setAddress(rs.getString(4));
+            vo.setTel(rs.getString(5));
+            vo.setType(rs.getString(6));
+            vo.setPrice(rs.getString(7));
+            vo.setParking(rs.getString(8));
+            vo.setTime(rs.getString(9));
+            vo.setMenu(rs.getString(10));
+            vo.setPoster(rs.getString(11));
             // MVC => 가장 쉬운 방법을 선택
             rs.close();
         }catch (Exception e){
@@ -140,4 +141,72 @@ public class FoodDAO {
         }
         return vo;
     }
+    
+    // 지역별 찾기(동,구) ==>
+    public List<FoodVO> foodLocationFindData(String ss, int page){
+    	List<FoodVO> list = new ArrayList<FoodVO>();
+    	try {
+			conn=dbcp.getConnection();
+			String sql="SELECT no,poster,name,num "
+					+ "FROM (SELECT no,poster,name,rownum as num "
+					+ "FROM (SELECT no,poster,name "
+					+ "FROM food_location WHERE address LIKE '%'||?||'%' "
+					+ "ORDER BY 1)) "
+					+ "WHERE num BETWEEN ? AND ?";
+			ps=conn.prepareStatement(sql);
+			int rowSize=12;
+			int start=(rowSize*page)-(rowSize-1);
+			int end = rowSize*page;
+			
+			ps.setString(1, ss);
+			ps.setInt(2, start);
+			ps.setInt(3, end);
+			
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				FoodVO vo = new FoodVO();
+				vo.setNo(rs.getInt(1));
+				String poster=rs.getString(2);
+				poster=poster.substring(0,poster.indexOf("^"));
+				vo.setPoster(poster);
+				vo.setName(rs.getString(3));
+				
+				list.add(vo);
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			dbcp.disConnection(conn, ps);
+		}
+    	return list;
+    	
+    }
+    
+    public int foodLocationFindTotalPage(String ss) {
+    	int total=0;
+    	try {
+    		conn=dbcp.getConnection();
+    		String sql="SELECT CEIL(COUNT(*)/12.0) FROM food_location WHERE address LIKE '%'||?||'%'";
+    		ps=conn.prepareStatement(sql);
+    		ps.setString(1, ss);
+    		ResultSet rs = ps.executeQuery();
+    		rs.next();
+    		total=rs.getInt(1);
+    		rs.close();
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}finally {
+			dbcp.disConnection(conn, ps);
+		}
+    	return total;
+    	
+    }
+    
+    
+    
+    
+    
+    
+    
 }

@@ -86,11 +86,12 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar:///Library/Java/JavaVirtualMachines/Controller.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/control.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jsoup-1.14.3" level="application" />
   </component>
 </module>
