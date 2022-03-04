@@ -3,6 +3,7 @@ package com.sist.model;
 
 import com.sist.dao.*;
 import com.sist.vo.FoodVO;
+import com.sist.vo.ReplyVO;
 import com.sist.vo.SeoulHotelVO;
 import com.sist.vo.SeoulLocationVO;
 import com.sist.vo.SeoulNatureVO;
@@ -161,6 +162,9 @@ public class SeoulModel {
     	
     	List<FoodVO> list = dao.locationFoodData(addr2);
     	// => 읽어온 데이터를 location_detail.jsp로 전송(request.setAttribute())
+    	ReplyDAO rdao = new ReplyDAO();
+        List<ReplyVO> rlist=rdao.replyListData(Integer.parseInt(no), 2);
+        request.setAttribute("rList", rlist);
     	request.setAttribute("list", list);
     	request.setAttribute("vo", vo);
     	request.setAttribute("main_jsp", "../seoul/location_detail.jsp");
@@ -180,7 +184,9 @@ public class SeoulModel {
     	
     	
     	List<FoodVO> list = dao.locationFoodData(addr2);
-    
+    	ReplyDAO rdao = new ReplyDAO();
+        List<ReplyVO> rlist=rdao.replyListData(Integer.parseInt(no), 3);
+        request.setAttribute("rList", rlist);
     	request.setAttribute("list", list);
     	request.setAttribute("vo", vo);
     	
@@ -201,7 +207,9 @@ public class SeoulModel {
     	
     	
     	List<FoodVO> list = dao.locationFoodData(addr2);
-    
+    	ReplyDAO rdao = new ReplyDAO();
+        List<ReplyVO> rlist=rdao.replyListData(Integer.parseInt(no), 4);
+        request.setAttribute("rList", rlist);
     	request.setAttribute("list", list);
     	request.setAttribute("vo", vo);
     	

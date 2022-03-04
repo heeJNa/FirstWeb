@@ -62,14 +62,19 @@ public class FoodModel {
         FoodDAO dao = new FoodDAO();
         FoodVO vo = dao.foodDetailData(Integer.parseInt(no),table_name);
         String address=vo.getAddress();
+        System.out.println(address);
         String addr1=address.substring(0,address.lastIndexOf("지"));
         vo.setAddr1(addr1.trim());
         String addr2=address.substring(address.lastIndexOf("지"));
         vo.setAddr2(addr2);
 
+        
+        // 댓글 (아직 미완)
+        ReplyDAO rdao = new ReplyDAO();
+        List<ReplyVO> list=rdao.replyListData(Integer.parseInt(no), 1);
+        request.setAttribute("rList", list);
         // food_detail.jsp로 vo를 전송
         request.setAttribute("vo",vo);
-        // 댓글 (아직 미완)
         // 3. 자바/JSP 분리해서 사용 ==> 재사용/확장성
         request.setAttribute("main_jsp","../food/food_detail.jsp");
         return  "../main/main.jsp";
