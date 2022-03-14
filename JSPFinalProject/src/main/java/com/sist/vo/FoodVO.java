@@ -2,11 +2,22 @@ package com.sist.vo;
 
 public class FoodVO {
     private int no,cno;
-    private String poster,name,address,tel,type,price,time,menu,parking;
+    private String poster,name,address,tel,type,price,time,menu,parking,reserve_days;
     private double score;
     private String addr1, addr2;
 
-    public String getAddr1() {
+    
+    
+
+	public String getReserve_days() {
+		return reserve_days;
+	}
+
+	public void setReserve_days(String reserve_days) {
+		this.reserve_days = reserve_days;
+	}
+
+	public String getAddr1() {
         return addr1;
     }
 

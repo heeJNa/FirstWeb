@@ -73,7 +73,7 @@
 	         
 	          <li><a href="../food/location.do">지역별 맛집찾기</a></li>
 	          <c:if test="${sessionScope.id!=null }">
-	          <li><a href="../food/reserve.do">맛집 예약</a></li>
+	          <li><a href="../reserve/reserve.do">맛집 예약</a></li>
 	          <li><a href="../food/recommand.do">맛집 추천</a></li>
 	          </c:if>
 	        </ul>
@@ -106,10 +106,10 @@
 	      <li><a href="#">실시간 채팅</a></li>
 	       <c:if test="${sessionScope.id!=null }">
 	      	 <c:if test="${sessionScope.admin=='n' }">
-	      		<li><a href="#">마이페이지</a></li>
+	      		<li><a href="../main/mypage.do">마이페이지</a></li>
 	      	</c:if>
 	      	<c:if test="${sessionScope.admin=='y' }">
-	      		<li><a href="#">어드민페이지</a></li>
+	      		<li><a href="../main/adminpage.do">어드민페이지</a></li>
 	      	</c:if>
 	      </c:if>
 	    </ul>
